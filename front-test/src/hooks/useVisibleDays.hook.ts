@@ -22,5 +22,12 @@ export function useVisibleDaysHook(calendar: Calendar) {
     }
   };
 
-  return {startIndex, setStartIndex, visibleDays, totalDays, handleNextClick, handlePrevClick}
+  return {
+    startIndex,
+    setStartIndex,
+    visibleDays,
+    totalDays,
+    handleNextClick,
+    handlePrevClick,
+  };
 }

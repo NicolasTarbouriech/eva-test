@@ -12,6 +12,7 @@ export default function Days({calendar, selectedDay, handleDayClick}: DaysProps)
   return (
     <Grid sx={ {display: 'flex', marginRight: 'auto', marginBottom: '60px'} }>
       <IconButton
+        sx={{ position: 'absolute', top: '150px', left: '120px'}}
         onClick={ handlePrevClick }
         disabled={ startIndex === 0 }
         aria-label="Previous"
@@ -27,7 +28,7 @@ export default function Days({calendar, selectedDay, handleDayClick}: DaysProps)
               backgroundColor: '#7565D9',
               color: 'white',
             },
-            minWidth: '140px', border: '1px solid #7565D9', marginLeft: '0.5rem', marginBottom: '0.5rem'
+            minWidth: '150px', border: '1px solid #7565D9', marginLeft: '0.5rem', marginBottom: '0.5rem'
           } }
           key={ day }
           onClick={ () => handleDayClick(day) }
@@ -45,6 +46,7 @@ export default function Days({calendar, selectedDay, handleDayClick}: DaysProps)
         </CardContent>
       )) }
       <IconButton
+        sx={{ position: 'absolute', right: '170px', top: '150px'}}
         onClick={ handleNextClick }
         disabled={ startIndex === totalDays - 7 }
         aria-label="Next"

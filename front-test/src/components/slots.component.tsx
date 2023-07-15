@@ -3,13 +3,18 @@ import { CardContent, Grid } from "@mui/material";
 import { useEffect, useState } from "react";
 
 export default function Slots({calendar, selectedDay, selectedSlots, handleSlotClick}: SlotsProps) {
-  const [visibleSlots, setVisibleSlots] = useState<Slot[]>();
+  const [visibleSlots, setVisibleSlots] = useState<Slot[]>([]);
   const slots = calendar[selectedDay];
 
-  useEffect(() => {
+  function updateVisibleSlots() {
     if (slots && slots.length > 16) {
       setVisibleSlots(slots.slice(0, 16));
+    } else if (slots) {
+      setVisibleSlots(slots.slice(0, slots.length))
     }
+  }
+  useEffect(() => {
+    updateVisibleSlots()
   }, [slots]);
 
   if (!slots || slots.length === 0) {
@@ -23,7 +28,7 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
   return (
     <>
       <Grid sx={ {display: 'flex', marginBottom: '20px', marginRight: 'auto', flexWrap: 'wrap'} }>
-        { visibleSlots?.map((slot: Slot) => (
+        { visibleSlots.map((slot: Slot) => (
           <CardContent
             className={ `slot-card ${ selectedSlots.includes(slot.slotId) ? 'selected' : '' }` }
             sx={ {
@@ -50,7 +55,7 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
           </CardContent>
         )) }
       </Grid>
-      { slots.length > 16 && (
+      { visibleSlots.length < 17 ? (
         <div
           style={ {
             marginLeft: 'auto',
@@ -61,7 +66,17 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
         >
           Show all time slots
         </div>
-      ) }
+      ) :
+        <div
+          style={ {
+            marginLeft: 'auto',
+            cursor: 'pointer',
+            textDecoration: 'underline'
+          } }
+          onClick={ updateVisibleSlots }
+        >
+          Show less
+        </div>}
     </>
   );
 }

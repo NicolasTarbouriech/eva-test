@@ -10,7 +10,7 @@ export function useSelectedSlotHook() {
       // cancel selection
       setSelectedSlots(selectedSlots.filter((id) => id !== slotId));
     } else {
-     // add slot to the array
+      // add slot to the array
       setSelectedSlots([...selectedSlots, slotId]);
     }
   };
