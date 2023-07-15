@@ -7,7 +7,9 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
   const slots = calendar[selectedDay];
 
   useEffect(() => {
-    setVisibleSlots(slots.slice(0, 16));
+    if (slots && slots.length > 16) {
+      setVisibleSlots(slots.slice(0, 16));
+    }
   }, [slots]);
 
   if (!slots || slots.length === 0) {
@@ -20,7 +22,7 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
 
   return (
     <>
-      <Grid sx={ {display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '20px'} }>
+      <Grid sx={ {display: 'flex', marginBottom: '20px', marginRight: 'auto', flexWrap: 'wrap'} }>
         { visibleSlots?.map((slot: Slot) => (
           <CardContent
             className={ `slot-card ${ selectedSlots.includes(slot.slotId) ? 'selected' : '' }` }
@@ -43,7 +45,7 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
             onClick={ () => handleSlotClick(slot.slotId) }
           >
             <div style={ {
-              display: 'flex', alignItems: 'center', justifyContent: 'center'
+              display: 'flex', alignItems: 'center', justifyContent: 'center', fontWeight: 'bold'
             } }>{ slot.slotStartTime }</div>
           </CardContent>
         )) }
@@ -51,9 +53,7 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
       { slots.length > 16 && (
         <div
           style={ {
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'flex-end',
+            marginLeft: 'auto',
             cursor: 'pointer',
             textDecoration: 'underline'
           } }

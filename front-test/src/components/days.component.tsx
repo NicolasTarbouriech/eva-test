@@ -10,7 +10,7 @@ export default function Days({calendar, selectedDay, handleDayClick}: DaysProps)
     useVisibleDaysHook(calendar);
 
   return (
-    <Grid sx={ {display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginBottom: '20px'} }>
+    <Grid sx={ {display: 'flex', marginRight: 'auto', marginBottom: '60px'} }>
       <IconButton
         onClick={ handlePrevClick }
         disabled={ startIndex === 0 }

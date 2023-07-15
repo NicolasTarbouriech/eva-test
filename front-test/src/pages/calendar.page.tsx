@@ -27,17 +27,21 @@ export default function CalendarPage() {
       <Grid item xs={ 12 } sm={ 10 }
             sx={ {display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px'} }>
         <Grid container alignItems="center" justifyContent="space-between" marginBottom="10px">
-          <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          <div style={ {display: 'flex', justifyContent: 'center', alignItems: 'center'} }>
             <div style={ {fontWeight: 'bold', fontSize: '20px', marginRight: '10px'} }>CALENDAR</div>
             <CalendarMonthIcon/>
           </div>
           <div
-            style={{ cursor: 'pointer', textDecoration: 'underline'}}
-            onClick={() => clearAllSelections()}>Clear my selection(s)</div>
+            style={ {cursor: 'pointer', textDecoration: 'underline'} }
+            onClick={ () => clearAllSelections() }>Clear my selection(s)
+          </div>
         </Grid>
         <Grid container alignItems="center" justifyContent="center" flexDirection="column" marginTop="20px">
           <Days calendar={ calendar } selectedDay={ selectedDay } handleDayClick={ handleDayClick }/>
-          <Slots calendar={ calendar } selectedDay={ selectedDay } selectedSlots={ selectedSlots}
+          <div style={ {marginRight: 'auto', fontWeight: 'bold', fontSize: '20px', marginBottom: '20px'} }>
+            AVAILABLE TIME SLOTS
+          </div>
+          <Slots calendar={ calendar } selectedDay={ selectedDay } selectedSlots={ selectedSlots }
                  handleSlotClick={ handleSlotClick }/>
         </Grid>
       </Grid>
