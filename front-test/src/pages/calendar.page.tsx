@@ -26,7 +26,8 @@ export default function CalendarPage() {
     <Container>
       <Grid item xs={ 12 } sm={ 10 }
             sx={ {display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: '20px'} }>
-        <Grid container alignItems="center" justifyContent="space-between" marginBottom="10px">
+        <Grid container
+              sx={{ justifyContent: 'space-between', marginBottom: '10px', alignItems: 'center'}}>
           <div style={ {display: 'flex', justifyContent: 'center', alignItems: 'center'} }>
             <div style={ {fontWeight: 'bold', fontSize: '20px', marginRight: '10px'} }>CALENDAR</div>
             <CalendarMonthIcon/>
@@ -36,7 +37,7 @@ export default function CalendarPage() {
             onClick={ () => clearAllSelections() }>Clear my selection(s)
           </div>
         </Grid>
-        <Grid container alignItems="center" justifyContent="center" flexDirection="column" marginTop="20px">
+        <Grid container sx={{ alignItems: "center", justifyContent: "center", flexDirection:"column", marginTop:"20px"}}>
           <Days calendar={ calendar } selectedDay={ selectedDay } handleDayClick={ handleDayClick }/>
           <div style={ {marginRight: 'auto', fontWeight: 'bold', fontSize: '20px', marginBottom: '20px'} }>
             AVAILABLE TIME SLOTS

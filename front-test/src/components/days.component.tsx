@@ -23,7 +23,7 @@ export default function Days({calendar, selectedDay, handleDayClick}: DaysProps)
         <CardContent
           sx={ {
             backgroundColor: selectedDay === day ? '#7565D9' : 'transparent',
-            color: selectedDay === day ? 'white' : 'inherit', cursor: 'pointer',
+            color: selectedDay === day ? '#FFFFFF' : 'inherit', cursor: 'pointer',
             "&:hover": {
               backgroundColor: '#7565D9',
               color: 'white',

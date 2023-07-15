@@ -13,17 +13,18 @@ export default function Slots({calendar, selectedDay, selectedSlots, handleSlotC
       setVisibleSlots(slots.slice(0, slots.length))
     }
   }
+
   useEffect(() => {
     updateVisibleSlots()
   }, [slots]);
 
-  if (!slots || slots.length === 0) {
-    return <p>No slots available for the selected day.</p>;
-  }
-
   const handleShowAllClick = () => {
     setVisibleSlots(slots)
   };
+
+  if (!slots || slots.length === 0) {
+    return <p>No slots available for the selected day.</p>;
+  }
 
   return (
     <>
