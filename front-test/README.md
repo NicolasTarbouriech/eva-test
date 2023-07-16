@@ -4,6 +4,7 @@ This project was made by Nicolas Tarbouriech.
 
 ## Run the application : 
 
+### `npm i` 
 ### `npm run start`
 
 ### You can select a day and select one or more slot on the day selected, or on another day.
