@@ -15,7 +15,7 @@
 
 ### 4 - How would you track down a performance issue in production? Have you ever had to do this?
 
-- I would test the application, including load tests that simulate a strong audience on the site and see if performance is impacted. We had already had a similar problem, I did not take care of the infrastructure but I know that to remedy it, we had to create 4 instances of our project, and from now on, as soon as we have users on the site, they are distributed equally over the 4 amazon instances so as not to overload one.
+- I would test the application, including load tests that simulate a strong audience on the site and see if performance is impacted. We had already had a similar problem, I did not take care of the infrastructure but I know that to remedy it, we had to create 4 instances of our project, and from now on, as soon as we have users on the site, they are distributed equally over the 4 amazon instances with the load balancer so as not to overload one.
 
 ## Bonus questions
 
